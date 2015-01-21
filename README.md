@@ -33,15 +33,12 @@ solved!
 url redirects to puzzle 1
 
 ## puzzle 1
-http://www.pythonchallenge.com/pc/def/map.html
+See puzzle1.py and test_puzzle1.py
 
-image shows
-k -> m
-o -> q
-e -> g
+To run tests in terminal
+    ➜  python_challenge git:(master) ✗ python3 test_puzzle1.py
+    .
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
 
-title: everybody thinks twice before solving this.
-
-g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp.
-bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle.
-sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj.
+    OK
