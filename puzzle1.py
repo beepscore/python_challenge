@@ -31,7 +31,6 @@ sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj.
 
 
 def increment_letter(letter):
-
     """ Argument letter is ascii, case insensitive.
     Increment letter by one
     Wrap z back to a
@@ -46,3 +45,16 @@ def increment_letter(letter):
         # use ascii arithmetic
         # http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
         return chr(ord(letter) + 1)
+
+
+def increment_letter_by_two(letter):
+    """ Argument letter is ascii, case insensitive.
+    Increment letter by two
+    Wrap y back to a
+    'a' -> 'c'
+    'x' -> 'z'
+    'y' -> 'a'
+    'z' -> 'b'
+    http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
+    """
+    return increment_letter(increment_letter(letter))
