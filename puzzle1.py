@@ -83,6 +83,7 @@ def translate_message(message):
     Python 2 used string.maketrans with byte arguments
     Python 3 deprecated string.maketrans and uses str.maketrans
     """
-    translation_table = str.maketrans("yzabcdefghijklmnopqrstuvwx",
-                                      "abcdefghijklmnopqrstuvwxyz")
+    translation_table = str.maketrans(
+        "yzabcdefghijklmnopqrstuvwxYZABCDEFGHIJKLMNOPQRSTUVWX",
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
     return message.translate(translation_table)
