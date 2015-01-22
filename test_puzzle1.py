@@ -36,6 +36,10 @@ using string.maketrans() is recommended. now apply on the url.
         self.assertEqual(self.message_expected,
                          puzzle1.translate_message(self.message_original))
 
+    def test_map_message(self):
+        self.assertEqual(self.message_expected,
+                         puzzle1.map_message(self.message_original))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -61,14 +61,16 @@ def increment_letter_by_two(letter):
 
 
 def translate_message(message):
+    """ Use list comprehension
+    """
     message_translated = [increment_letter_by_two(letter) for letter in message]
     return ''.join(message_translated)
 
 
-"""
-# TODO: Alternative solution. Fix or delete it
 def map_message(message):
-    message_mapped = map(lambda letter: increment_letter_by_two(letter), message)
-    print(message_mapped)
-    return message_mapped
-"""
+    """ Use map. (Alternative to using list comprehension.)
+    """
+    # map is lazy and won't generate / evaluate until and unless it has to
+    message_mapped = map(lambda letter: increment_letter_by_two(letter),
+                         message)
+    return ''.join(message_mapped)
