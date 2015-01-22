@@ -37,8 +37,8 @@ See puzzle1.py and test_puzzle1.py
 
 To run tests in terminal
     ➜  python_challenge git:(master) ✗ python3 test_puzzle1.py
-    .
+    ...
     ----------------------------------------------------------------------
-    Ran 1 test in 0.000s
+    Ran 3 tests in 0.001s
 
     OK
