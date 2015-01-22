@@ -25,6 +25,7 @@ Try map ahead 2
 
 """
 
+
 def increment_letter(letter):
     """ Argument letter is ascii, case insensitive.
     Increment letter by one
@@ -60,11 +61,11 @@ def increment_letter_by_two(letter):
     return increment_letter(increment_letter(letter))
 
 
-def translate_message(message):
+def increment_message(message):
     """ Use list comprehension
     """
-    message_translated = [increment_letter_by_two(letter) for letter in message]
-    return ''.join(message_translated)
+    message_incremented = [increment_letter_by_two(letter) for letter in message]
+    return ''.join(message_incremented)
 
 
 def map_message(message):
@@ -74,3 +75,14 @@ def map_message(message):
     message_mapped = map(lambda letter: increment_letter_by_two(letter),
                          message)
     return ''.join(message_mapped)
+
+
+def translate_message(message):
+    """ Use maketrans suggested by decoded puzzle string.
+    Works with Unicode, solution is more general than "ascii arithmetic".
+    Python 2 used string.maketrans with byte arguments
+    Python 3 deprecated string.maketrans and uses str.maketrans
+    """
+    translation_table = str.maketrans("yzabcdefghijklmnopqrstuvwx",
+                                      "abcdefghijklmnopqrstuvwxyz")
+    return message.translate(translation_table)

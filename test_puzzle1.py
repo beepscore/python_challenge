@@ -32,13 +32,17 @@ using string.maketrans() is recommended. now apply on the url.
         self.assertEqual('b', puzzle1.increment_letter_by_two('z'))
         self.assertEqual(' ', puzzle1.increment_letter_by_two(' '))
 
-    def test_translate_message(self):
+    def test_increment_message(self):
         self.assertEqual(self.message_expected,
-                         puzzle1.translate_message(self.message_original))
+                         puzzle1.increment_message(self.message_original))
 
     def test_map_message(self):
         self.assertEqual(self.message_expected,
-                         puzzle1.map_message(self.message_original))
+                         puzzle1.translate_message(self.message_original))
+
+    def test_translate_message(self):
+        self.assertEqual(self.message_expected,
+                         puzzle1.translate_message(self.message_original))
 
 
 if __name__ == "__main__":
