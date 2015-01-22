@@ -44,6 +44,13 @@ using string.maketrans() is recommended. now apply on the url.
         self.assertEqual(self.message_expected,
                          puzzle1.translate_message(self.message_original))
 
+    def test_translate_message_url(self):
+        # puzzle1 is at
+        # http://www.pythonchallenge.com/pc/def/map.html
+        # expect puzzle2 will be at
+        # http://www.pythonchallenge.com/pc/def/ocr.html
+        self.assertEqual("ocr",
+                         puzzle1.translate_message("map"))
 
 if __name__ == "__main__":
     unittest.main()
