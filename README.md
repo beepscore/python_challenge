@@ -6,6 +6,14 @@ Record info about Python challenge game.
 # References
 http://www.pythonchallenge.com/
 
+## project structure info
+http://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application
+http://as.ynchrono.us/2007/12/filesystem-structure-of-python-project_21.html
+
+## unit tests
+http://stackoverflow.com/questions/1732438/how-to-run-all-python-unit-tests-in-a-directory
+http://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure#1897665
+
 # Results
 Click on button "Click here to get challenged.
 Navigates to puzzle 0.
@@ -35,10 +43,12 @@ url redirects to puzzle 1
 ## puzzle 1
 See puzzle1.py and test_puzzle1.py
 
-To run tests in terminal
-    ➜  python_challenge git:(master) ✗ python3 test_puzzle1.py
-    ...
-    ----------------------------------------------------------------------
-    Ran 3 tests in 0.001s
+## Run unit tests
 
+To run tests in terminal, cd to top level directory that contains subdirectory test
+
+    ➜  python_challenge git:(master) ✗ python3 -m unittest discover test
+    ......
+    ----------------------------------------------------------------------
+    Ran 6 tests in 0.001s
     OK
