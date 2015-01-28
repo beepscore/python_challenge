@@ -7,7 +7,8 @@ import codecs
 class TestPuzzle2(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.leader = "mess below:\n-->\n\n<!--\n"
+        self.trailer = "\n-->"
 
     def get_file_string(self, filename):
         """ read contents of file and return a string
@@ -49,9 +50,19 @@ class TestPuzzle2(unittest.TestCase):
         actual_string = puzzle2.string_from_bytes(actual_bytes)
         self.assertEqual(expected, actual_string)
 
-    def test_trimmed_content(self):
-        #actual = puzzle2.trimmed_content(self.response_expected)
-        pass
+    def test_get_mess_and_trailer(self):
+        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        actual = puzzle2.get_mess_and_trailer(content, self.leader)
+        self.assertEqual("%%$@_$^__#)^", actual[:12])
+
+    def test_get_mess(self):
+        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        actual = puzzle2.get_mess(
+            content, self.leader, self.trailer)
+        # test start
+        self.assertEqual("%%$@_$^__#)^", actual[:12])
+        # test end
+        self.assertEqual(")$!%{(}$^$}*", actual[len(actual)-12:])
 
 
 if __name__ == "__main__":
