@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import string
+import urllib.request
 
 """
 Reference
@@ -13,22 +13,20 @@ test_puzzle1.py
 In browser, view page source
 find rare characters in the mess below:
 
-I put the string in puzzle2_data.txt
+I put the string in a test file.
 """
 
 # TODO
 # add another method to count occurrences and return rare characters
 
 
-def get_file_string(filename):
-    """ read contents of file and return a string
-        If can't read file or file is empty return None
-    """
-    file_string = None
+def get_response(url):
+    # response type is bytes
+    # https://docs.python.org/3/library/urllib.request.html
+    response = urllib.request.urlopen(url).read()
+    return response
 
-    # TODO
-    # open file for read
-    # read string
-    # escape characters??
-    file_string = ""
-    return file_string
+
+def string_from_bytes(a_bytes):
+    # http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
+    return a_bytes.decode("utf-8")
