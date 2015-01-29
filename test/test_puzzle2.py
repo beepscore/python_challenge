@@ -76,6 +76,8 @@ class TestPuzzle2(unittest.TestCase):
     def test_get_string_from_unique_chars(self):
         content = self.get_file_string("test/puzzle2_response_expected.txt")
         mess = puzzle2.get_mess(content, self.leader, self.trailer)
+        # next puzzle puzzle3 url is at 'equality'
+        # http://www.pythonchallenge.com/pc/def/equality.html
         self.assertEqual("equality", puzzle2.get_string_from_unique_chars(mess))
 
 

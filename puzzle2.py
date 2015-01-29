@@ -44,7 +44,7 @@ def get_mess(content, leader, trailer):
 
 def get_character_counts(a_string):
     """ return a list of lists.
-    This maintains order and can be used to construct an orderedDict
+    This maintains character order
     http://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value?rq=1
     http://stackoverflow.com/questions/15733558/python-ordereddict-not-keeping-element-order?rq=1
     """
