@@ -16,9 +16,6 @@ find rare characters in the mess below:
 I put the string in a test file.
 """
 
-# TODO
-# add another method to count occurrences and return rare characters
-
 
 def get_response(url):
     # response type is bytes
@@ -44,11 +41,29 @@ def get_mess(content, leader, trailer):
     mess = components_split_at_trailer[-2]
     return mess
 
+
 def get_character_counts(a_string):
-    character_counts = {}
+    """ return a list of lists.
+    This maintains order and can be used to construct an orderedDict
+    http://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value?rq=1
+    http://stackoverflow.com/questions/15733558/python-ordereddict-not-keeping-element-order?rq=1
+    """
+    character_counts = []
+    characters = []
     for char in a_string:
-        if char not in character_counts:
-            character_counts[char] = 1
+        # list comprehension
+        characters = [item[0] for item in character_counts]
+        if char not in characters:
+            character_counts.append([char, 1])
         else:
-            character_counts[char] += 1
+            for item in character_counts:
+                if item[0] == char:
+                    item[1] += 1
+                    break
     return character_counts
+
+
+def get_string_from_unique_chars(a_string):
+    character_counts = get_character_counts(a_string)
+    unique_chars = list(char for char, count in character_counts if count == 1)
+    return ''.join(unique_chars)
