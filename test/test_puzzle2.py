@@ -48,6 +48,7 @@ class TestPuzzle2(unittest.TestCase):
         actual_bytes = puzzle2.get_response(
             "http://www.pythonchallenge.com/pc/def/ocr.html")
         actual_string = puzzle2.string_from_bytes(actual_bytes)
+        self.assertEqual(99613, len(actual_string))
         self.assertEqual(expected, actual_string)
 
     def test_get_mess_and_trailer(self):
@@ -59,6 +60,7 @@ class TestPuzzle2(unittest.TestCase):
         content = self.get_file_string("test/puzzle2_response_expected.txt")
         actual = puzzle2.get_mess(
             content, self.leader, self.trailer)
+        self.assertEqual(98764, len(actual))
         # test start
         self.assertEqual("%%$@_$^__#)^", actual[:12])
         # test end
