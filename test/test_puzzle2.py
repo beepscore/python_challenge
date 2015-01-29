@@ -66,6 +66,14 @@ class TestPuzzle2(unittest.TestCase):
         # test end
         self.assertEqual(")$!%{(}$^$}*", actual[len(actual)-12:])
 
+    def test_get_character_counts(self):
+        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        mess = puzzle2.get_mess(
+            content, self.leader, self.trailer)
+        character_counts = puzzle2.get_character_counts(mess)
+        self.assertEqual(25, len(character_counts))
+        self.assertTrue("'" not in character_counts)
+        self.assertEqual(6104, character_counts["%"])
 
 if __name__ == "__main__":
     unittest.main()

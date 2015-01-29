@@ -43,3 +43,12 @@ def get_mess(content, leader, trailer):
     components_split_at_trailer = mess_and_trailer.split(trailer)
     mess = components_split_at_trailer[-2]
     return mess
+
+def get_character_counts(a_string):
+    character_counts = {}
+    for char in a_string:
+        if char not in character_counts:
+            character_counts[char] = 1
+        else:
+            character_counts[char] += 1
+    return character_counts
