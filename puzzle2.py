@@ -15,19 +15,6 @@ I put the string in a test file.
 """
 
 
-def get_mess_and_trailer(content, leader):
-    components_split_at_leader = content.split(leader)
-    mess_and_trailer = components_split_at_leader[-1]
-    return mess_and_trailer
-
-
-def get_mess(content, leader, trailer):
-    mess_and_trailer = get_mess_and_trailer(content, leader)
-    components_split_at_trailer = mess_and_trailer.split(trailer)
-    mess = components_split_at_trailer[-2]
-    return mess
-
-
 def get_character_counts(a_string):
     """ return a list of lists.
     This maintains character order
