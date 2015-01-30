@@ -5,7 +5,7 @@ import file_utils
 import url_utils
 
 
-class TestPuzzle2(unittest.TestCase):
+class TestUrlUtils(unittest.TestCase):
 
     def setUp(self):
         self.leader = "mess below:\n-->\n\n<!--\n"
