@@ -6,6 +6,9 @@ import file_utils
 
 
 class TestPuzzle2(unittest.TestCase):
+    """ Use test file puzzle2_response_expected.txt in place of web response.
+        This reduces test scope and makes tests faster.
+    """
 
     def setUp(self):
         self.leader = "mess below:\n-->\n\n<!--\n"
