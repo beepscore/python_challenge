@@ -24,6 +24,9 @@ class TestUrlUtils(unittest.TestCase):
         self.assertTrue(isinstance(actual, bytes))
 
     def test_bytes_to_string(self):
+        """ Get url response, convert bytes to string,
+        and compare to puzzle2_response_expected.txt
+        """
         test_file_utils = file_utils.FileUtils()
         expected = test_file_utils.get_file_string(
             "test/puzzle2_response_expected.txt")
