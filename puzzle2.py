@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import urllib.request
-
 """
 Reference
 puzzle2 url
@@ -15,18 +13,6 @@ find rare characters in the mess below:
 
 I put the string in a test file.
 """
-
-
-def get_response(url):
-    # response type is bytes
-    # https://docs.python.org/3/library/urllib.request.html
-    response = urllib.request.urlopen(url).read()
-    return response
-
-
-def string_from_bytes(a_bytes):
-    # http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
-    return a_bytes.decode("utf-8")
 
 
 def get_mess_and_trailer(content, leader):
