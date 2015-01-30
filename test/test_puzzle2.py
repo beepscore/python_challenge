@@ -2,7 +2,7 @@
 
 import puzzle2
 import unittest
-import codecs
+import file_utils
 
 
 class TestPuzzle2(unittest.TestCase):
@@ -10,27 +10,6 @@ class TestPuzzle2(unittest.TestCase):
     def setUp(self):
         self.leader = "mess below:\n-->\n\n<!--\n"
         self.trailer = "\n-->"
-
-    def get_file_string(self, filename):
-        """ read contents of file and return a string
-        If can't read file or file is empty return None
-        """
-        # note text_file is a file object, not a string
-        text_file = open(filename)
-        file_string = text_file.read()
-        text_file.close()
-        # http://stackoverflow.com/questions/4020539/process-escape-sequences-in-a-string-in-python
-        decoded_string = codecs.decode(file_string, 'unicode_escape')
-        return decoded_string
-
-    def test_get_file_string(self):
-        """ Test the test method
-        """
-        actual = self.get_file_string("test/puzzle2_response_expected.txt")
-        self.assertIsNotNone(actual)
-        self.assertEqual(99613, len(actual))
-
-        self.assertEqual("<html>\n<he", actual[:10])
 
     def test_get_response(self):
         actual = puzzle2.get_response(
@@ -44,7 +23,9 @@ class TestPuzzle2(unittest.TestCase):
         self.assertTrue(isinstance(actual, bytes))
 
     def test_bytes_to_string(self):
-        expected = self.get_file_string("test/puzzle2_response_expected.txt")
+        test_file_utils = file_utils.FileUtils()
+        expected = test_file_utils.get_file_string(
+            "test/puzzle2_response_expected.txt")
 
         actual_bytes = puzzle2.get_response(
             "http://www.pythonchallenge.com/pc/def/ocr.html")
@@ -53,12 +34,16 @@ class TestPuzzle2(unittest.TestCase):
         self.assertEqual(expected, actual_string)
 
     def test_get_mess_and_trailer(self):
-        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        test_file_utils = file_utils.FileUtils()
+        content = test_file_utils.get_file_string(
+            "test/puzzle2_response_expected.txt")
         actual = puzzle2.get_mess_and_trailer(content, self.leader)
         self.assertEqual("%%$@_$^__#)^", actual[:12])
 
     def test_get_mess(self):
-        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        test_file_utils = file_utils.FileUtils()
+        content = test_file_utils.get_file_string(
+            "test/puzzle2_response_expected.txt")
         actual = puzzle2.get_mess(
             content, self.leader, self.trailer)
         self.assertEqual(98764, len(actual))
@@ -68,13 +53,17 @@ class TestPuzzle2(unittest.TestCase):
         self.assertEqual(")$!%{(}$^$}*", actual[len(actual)-12:])
 
     def test_get_character_counts(self):
-        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        test_file_utils = file_utils.FileUtils()
+        content = test_file_utils.get_file_string(
+            "test/puzzle2_response_expected.txt")
         mess = puzzle2.get_mess(content, self.leader, self.trailer)
         character_counts = puzzle2.get_character_counts(mess)
         self.assertEqual(25, len(character_counts))
 
     def test_get_string_from_unique_chars(self):
-        content = self.get_file_string("test/puzzle2_response_expected.txt")
+        test_file_utils = file_utils.FileUtils()
+        content = test_file_utils.get_file_string(
+            "test/puzzle2_response_expected.txt")
         mess = puzzle2.get_mess(content, self.leader, self.trailer)
         # next puzzle puzzle3 url is at 'equality'
         # http://www.pythonchallenge.com/pc/def/equality.html
