@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
 
-import urllib.request
+import re
 
-"""
-Reference
-puzzle3 url
-http://www.pythonchallenge.com/pc/def/equality.html
 
-puzzle3 url comes from solution to puzzle2
-test_puzzle2.py
+class Puzzle3:
+    """
+    Reference
+    puzzle3 url
+    http://www.pythonchallenge.com/pc/def/equality.html
 
-One small letter, surrounded by
-EXACTLY three big bodyguards on each of its sides.
+    puzzle3 url comes from solution to puzzle2
+    test_puzzle2.py
 
-In browser, view page source
+    One small letter, surrounded by
+    EXACTLY three big bodyguards on each of its sides.
 
-TODO: In long string at bottom, look for one lowercase letter
-surrounded by 3 uppercase each side.
-Could use regular expression or some match function.
+    In browser, view page source
+    """
 
-"""
+    def get_character_and_uppercase_bodyguards(self, a_string):
+        """
+        match pattern one lowercase letter surrounded by
+        3 uppercase each side.
+        """
+        match_object = re.search(r'([A-Z]){3}([a-z]){1}([A-Z]){3}', a_string)
+        return match_object.group(0)

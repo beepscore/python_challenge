@@ -6,7 +6,7 @@ import file_utils
 import url_utils
 
 
-class Testpuzzle3(unittest.TestCase):
+class TestPuzzle3(unittest.TestCase):
     """ Use test file puzzle3_response_expected.txt in place of web response.
         This reduces test scope and makes tests faster.
     """
@@ -16,6 +16,7 @@ class Testpuzzle3(unittest.TestCase):
         self.test_url_utils = url_utils.UrlUtils()
         self.leader = "<!--\n"
         self.trailer = "\n-->\n"
+        self.puzzle3 = puzzle3.Puzzle3()
 
     def test_get_mess_and_trailer(self):
         content = self.test_file_utils.get_file_string(
@@ -34,6 +35,16 @@ class Testpuzzle3(unittest.TestCase):
         # test end
         self.assertEqual("JkKbtSipiqBd", actual[len(actual)-12:])
 
+    def test_get_character_and_uppercase_bodyguards(self):
+        content = self.test_file_utils.get_file_string(
+            "test/puzzle3_response_expected.txt")
+        mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
+        actual = self.puzzle3.get_character_and_uppercase_bodyguards(mess)
+        # character is j
+        self.assertEqual("WDZjUZM", actual)
+        # both these urls return 404 not found
+        # http://www.pythonchallenge.com/pc/def/j.html
+        # http://www.pythonchallenge.com/pc/def/WDZjUZM.html
 
 if __name__ == "__main__":
     unittest.main()
