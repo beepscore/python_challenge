@@ -5,6 +5,7 @@ Record info about Python challenge game.
 
 # References
 http://www.pythonchallenge.com/
+https://groups.google.com/forum/#!forum/python-challenge
 
 ## project structure info
 http://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application
