@@ -18,10 +18,20 @@ class Puzzle3:
     In browser, view page source
     """
 
-    def get_character_and_uppercase_bodyguards(self, a_string):
+    def get_matches(self, a_string):
         """
-        match pattern one lowercase letter surrounded by
-        3 uppercase each side.
+        Assume bodyguard is an uppercase letter.
+        Match pattern one lowercase letter surrounded by
+        3 uppercase each side, surrounded by uppercase letter.
+        Hint
+        https://groups.google.com/forum/#!topic/python-challenge/H6QNsZevMnw
+        Preclude possibility of >3 uppercase bodyguards
         """
-        match_object = re.search(r'([A-Z]){3}([a-z]){1}([A-Z]){3}', a_string)
-        return match_object.group(0)
+        regex = r'[a-z]{1}[A-Z]{3}[a-z]{1}[A-Z]{3}[a-z]{1}'
+        matches = re.findall(regex, a_string)
+        return matches
+
+    def get_characters_inside_matches(self, a_string):
+        matches = self.get_matches(a_string)
+        small_letters = list(match[4] for match in matches)
+        return ''.join(small_letters)

@@ -35,16 +35,23 @@ class TestPuzzle3(unittest.TestCase):
         # test end
         self.assertEqual("JkKbtSipiqBd", actual[len(actual)-12:])
 
-    def test_get_character_and_uppercase_bodyguards(self):
+    def test_get_matches(self):
         content = self.test_file_utils.get_file_string(
             "test/puzzle3_response_expected.txt")
         mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
-        actual = self.puzzle3.get_character_and_uppercase_bodyguards(mess)
-        # character is j
-        self.assertEqual("WDZjUZM", actual)
-        # both these urls return 404 not found
-        # http://www.pythonchallenge.com/pc/def/j.html
-        # http://www.pythonchallenge.com/pc/def/WDZjUZM.html
+        actual = self.puzzle3.get_matches(mess)
+        self.assertEqual(10, len(actual))
+        self.assertEqual('qIQNlQSLi', actual[0])
+
+    def test_get_characters_inside_matches(self):
+        content = self.test_file_utils.get_file_string(
+            "test/puzzle3_response_expected.txt")
+        mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
+        actual = self.puzzle3.get_characters_inside_matches(mess)
+        self.assertEqual("linkedlist", actual)
+        # http://www.pythonchallenge.com/pc/def/linkedlist.html
+        # says linkedlist.php
+        # go to http://www.pythonchallenge.com/pc/def/linkedlist.php
 
 if __name__ == "__main__":
     unittest.main()
