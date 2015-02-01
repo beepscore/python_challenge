@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import url_utils
 import re
 
 
@@ -18,6 +19,12 @@ class Puzzle3:
     In browser, view page source
     """
 
+    def __init__(self):
+        self.url_utils = url_utils.UrlUtils()
+        self.puzzle_url = "http://www.pythonchallenge.com/pc/def/equality.html"
+        self.leader = "<!--\n"
+        self.trailer = "\n-->\n"
+
     def get_matches(self, a_string):
         """
         Assume bodyguard is an uppercase letter.
@@ -35,3 +42,11 @@ class Puzzle3:
         matches = self.get_matches(a_string)
         small_letters = list(match[4] for match in matches)
         return ''.join(small_letters)
+
+    def get_answer_url(self):
+        response_bytes = self.url_utils.get_response(self.puzzle_url)
+        response_string = self.url_utils.string_from_bytes(response_bytes)
+        mess = self.url_utils.get_mess(response_string,
+                                       self.leader, self.trailer)
+        characters = self.get_characters_inside_matches(mess)
+        return self.url_utils.get_url_from_answer_string(characters)

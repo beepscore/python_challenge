@@ -7,7 +7,7 @@ import url_utils
 
 
 class TestPuzzle3(unittest.TestCase):
-    """ Use test file puzzle3_response_expected.txt in place of web response.
+    """ Most tests use file puzzle3_response_expected.txt in place of web response.
         This reduces test scope and makes tests faster.
     """
 
@@ -52,6 +52,14 @@ class TestPuzzle3(unittest.TestCase):
         # http://www.pythonchallenge.com/pc/def/linkedlist.html
         # says linkedlist.php
         # go to http://www.pythonchallenge.com/pc/def/linkedlist.php
+
+    def test_get_answer_url(self):
+        """ This test makes a web request instead of using test file
+        """
+        actual = self.puzzle3.get_answer_url()
+        self.assertEqual(
+            "http://www.pythonchallenge.com/pc/def/linkedlist.html", actual)
+
 
 if __name__ == "__main__":
     unittest.main()
