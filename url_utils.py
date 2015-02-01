@@ -28,3 +28,14 @@ class UrlUtils:
         components_split_at_trailer = mess_and_trailer.split(trailer)
         mess = components_split_at_trailer[-2]
         return mess
+
+    def get_url_from_answer_string(self, a_string):
+        """ this method url encodes a_string to replace space with +
+        http://stackoverflow.com/questions/1211229/in-a-url-should-spaces-be-encoded-using-20-or
+        http://stackoverflow.com/questions/1634271/url-encoding-the-space-character-or-20
+        http://stackoverflow.com/questions/1005676/urls-and-plus-signs
+        """
+        base_url = "http://www.pythonchallenge.com/pc/def/"
+        end_url = urllib.parse.quote_plus(a_string) + ".html"
+        url = urllib.parse.urljoin(base_url, end_url)
+        return url
