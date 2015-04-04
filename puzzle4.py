@@ -26,6 +26,15 @@ class Puzzle4:
         self.url_utils = url_utils.UrlUtils()
         self.puzzle_url = "http://www.pythonchallenge.com/pc/def/linkedlist.php"
 
+    def get_url_for_url_start_count_max(self, url_start, count_max):
+        print()
+        print("url_start: " + url_start + " count_max: " + str(count_max))
+        url = url_start
+        for i in range(count_max):
+            url = self.get_next_url(url)
+            print("url: " + url)
+        return url
+
     def get_next_url(self, url):
         text = self.get_text_from_url(url)
         nothing_digits = self.get_nothing_digits_from_text(text)

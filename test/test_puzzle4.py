@@ -36,6 +36,11 @@ class TestPuzzle4(unittest.TestCase):
         expected = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=44827"
         self.assertEqual(expected, self.puzzle4.get_url_from_nothing_digits(nothing_digits))
 
+    def test_get_url_for_url_start_count_max(self):
+        url1 = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345"
+        url_end = self.puzzle4.get_url_for_url_start_count_max(url1, 2)
+        expected = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=45439"
+        self.assertEqual(expected, url_end)
 
 if __name__ == "__main__":
     unittest.main()
