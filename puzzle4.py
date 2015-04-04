@@ -21,6 +21,24 @@ class Puzzle4:
     says "and the next nothing is 44827"
     http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=44827
     says "and the next nothing is 45439"
+
+    Eventually goes to peak.html
+    body says "peak hell", says pronounce it
+    http://www.pythonchallenge.com/pc/def/pickle.html
+    Python serialization is called pickle.
+
+    Manually navigated to page
+    https://docs.python.org/3/library/pickle.html
+    Says
+    yes! pickle!
+
+    Are we supposed to pickle something to get the answer?
+    Pickle the web page?
+
+    Went back to
+    http://www.pythonchallenge.com/pc/def/peak.html
+    Page source shows banner.p, apparently a text file
+    Try unpickling or pickling it.
     """
 
     def __init__(self):
