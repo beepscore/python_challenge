@@ -76,20 +76,20 @@ class TestPuzzle4(unittest.TestCase):
         expected = "http://www.pythonchallenge.com/pc/def/foo not percent escaped"
         self.assertEqual(expected, self.puzzle4.get_next_url_from_text(text))
 
-    def test_get_next_url_digits_from_text_tired(self):
+    def test_get_url_digits_from_text_tired(self):
         text  = "<font color=red>Your hands are getting tired </font>and the next nothing is 94485"
         expected = "94485"
-        self.assertEqual(expected, self.puzzle4.get_next_url_digits_from_text(text))
+        self.assertEqual(expected, self.puzzle4.get_url_digits_from_text(text))
 
-    def test_get_next_url_digits_from_text_peak(self):
+    def test_get_url_digits_from_text_peak(self):
         text = "peak.html"
         expected = ""
-        self.assertEqual(expected, self.puzzle4.get_next_url_digits_from_text(text))
+        self.assertEqual(expected, self.puzzle4.get_url_digits_from_text(text))
 
-    def test_get_next_url_digits_from_text_no_digits_at_end(self):
+    def test_get_url_digits_from_text_no_digits_at_end(self):
         text = "123 not at end of string"
         expected = ""
-        self.assertEqual(expected, self.puzzle4.get_next_url_digits_from_text(text))
+        self.assertEqual(expected, self.puzzle4.get_url_digits_from_text(text))
 
     def test_get_url_for_url_start_count_max_2(self):
         url1 = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345"

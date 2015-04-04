@@ -62,7 +62,7 @@ class Puzzle4:
 
         if text == "Yes. Divide by two and keep going.":
             # NOTE: sic. divide digits in url
-            url_digits = self.get_next_url_digits_from_text(url)
+            url_digits = self.get_url_digits_from_text(url)
             next_url_digits = self.text_from_text_value_divided_by_2(url_digits)
             return self.get_next_url_from_text(next_url_digits)
         else:
@@ -79,7 +79,7 @@ class Puzzle4:
         return text
 
     def get_next_url_from_text(self, text):
-        next_url_digits = self.get_next_url_digits_from_text(text)
+        next_url_digits = self.get_url_digits_from_text(text)
         if next_url_digits == "":
             # TODO: consider percent escaping text to make method more general
             return "http://www.pythonchallenge.com/pc/def/" + text
@@ -87,7 +87,7 @@ class Puzzle4:
             url_start = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing="
             return url_start + next_url_digits
 
-    def get_next_url_digits_from_text(self, text):
+    def get_url_digits_from_text(self, text):
         # one or more digits followed by end of line
         regex = r'\d+$'
         matches = re.findall(regex, text)
