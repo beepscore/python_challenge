@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import url_utils
+import pickle
 import re
 
 
@@ -24,21 +25,20 @@ class Puzzle4:
 
     Eventually goes to peak.html
     body says "peak hell", says pronounce it
-    http://www.pythonchallenge.com/pc/def/pickle.html
+    I searched for a hint
+    http://python3solutions.blogspot.com/2011/04/python-challenge-005-peak.html
     Python serialization is called pickle.
+    https://docs.python.org/3.4/library/pickle.html#module-pickle
 
     Manually navigated to page
-    https://docs.python.org/3/library/pickle.html
+    http://www.pythonchallenge.com/pc/def/pickle.html
     Says
     yes! pickle!
-
-    Are we supposed to pickle something to get the answer?
-    Pickle the web page?
 
     Went back to
     http://www.pythonchallenge.com/pc/def/peak.html
     Page source shows banner.p, apparently a text file
-    Try unpickling or pickling it.
+    Unpickle it.
     """
 
     def __init__(self):
@@ -95,3 +95,28 @@ class Puzzle4:
             return matches[0]
         else:
             return ""
+
+    def get_banner_list(self):
+        banner_url = "http://www.pythonchallenge.com/pc/def/banner.p"
+        response_bytes = self.url_utils.get_response(banner_url)
+        banner_list = pickle.loads(response_bytes)
+        return banner_list
+
+    def print_banner_list(self, banner_list):
+        """
+        for banner_list from "http://www.pythonchallenge.com/pc/def/banner.p"
+        prints an "ascii-art" banner
+        of space and '#' characters that spells channel
+        puzzle5 is at
+        http://www.pythonchallenge.com/pc/def/channel.html
+        """
+        character_index = 0
+        repeat_index = 1
+
+        for line in banner_list:
+            line_string = ""
+            for character_tuple in line:
+                # * operator repeats the character repeat_index number of times
+                tuple_string = character_tuple[character_index] * character_tuple[repeat_index]
+                line_string += tuple_string
+            print(line_string)

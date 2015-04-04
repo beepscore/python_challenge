@@ -2,13 +2,11 @@
 
 import puzzle4
 import unittest
-import url_utils
 
 
 class TestPuzzle4(unittest.TestCase):
 
     def setUp(self):
-        self.test_url_utils = url_utils.UrlUtils()
         self.puzzle4 = puzzle4.Puzzle4()
 
     def test_text_from_text_value_divided_by_2(self):
@@ -102,6 +100,14 @@ class TestPuzzle4(unittest.TestCase):
         url_end = self.puzzle4.get_url_for_url_start_count_max(url1, 400)
         expected = "http://www.pythonchallenge.com/pc/def/peak.html"
         self.assertEqual(expected, url_end)
+
+    def test_get_banner_list(self):
+        banner_list = self.puzzle4.get_banner_list()
+        self.assertEqual(23, len(banner_list))
+
+    def test_print_banner_list(self):
+        banner_list = self.puzzle4.get_banner_list()
+        self.puzzle4.print_banner_list(banner_list)
 
 if __name__ == "__main__":
     unittest.main()
