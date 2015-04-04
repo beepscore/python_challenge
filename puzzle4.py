@@ -62,13 +62,16 @@ class Puzzle4:
 
         if text == "Yes. Divide by two and keep going.":
             # NOTE: sic. divide digits in url
-            double_next_url_digits = self.get_next_url_digits_from_text(url)
-            double_next_url_value = int(double_next_url_digits)
-            next_url_value = double_next_url_value // 2
-            next_url_digits = str(next_url_value)
+            url_digits = self.get_next_url_digits_from_text(url)
+            next_url_digits = self.text_from_text_value_divided_by_2(url_digits)
             return self.get_next_url_from_text(next_url_digits)
         else:
             return self.get_next_url_from_text(text)
+
+    def text_from_text_value_divided_by_2(self, digits_text):
+            value = int(digits_text)
+            value_divided_by_2 = value // 2
+            return str(value_divided_by_2)
 
     def get_text_from_url(self, url):
         response_bytes = self.url_utils.get_response(url)

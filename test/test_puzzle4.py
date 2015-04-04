@@ -11,6 +11,15 @@ class TestPuzzle4(unittest.TestCase):
         self.test_url_utils = url_utils.UrlUtils()
         self.puzzle4 = puzzle4.Puzzle4()
 
+    def test_text_from_text_value_divided_by_2(self):
+        expected = "8022"
+        actual = self.puzzle4.text_from_text_value_divided_by_2("16044")
+        self.assertEqual(expected, actual)
+
+        expected = "4"
+        actual = self.puzzle4.text_from_text_value_divided_by_2("9")
+        self.assertEqual(expected, actual)
+
     def test_get_next_url(self):
         url1 = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345"
         url2 = self.puzzle4.get_next_url(url1)
