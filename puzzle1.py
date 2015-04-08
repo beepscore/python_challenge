@@ -27,8 +27,11 @@ Try map ahead 2
 
 
 def increment_letter(letter):
-    """ Argument letter is ascii, case insensitive.
-    Increment letter by one
+    """Return letter incremented by one
+
+    Keyword arguments:
+        letter -- ascii, case insensitive
+
     Wrap z back to a
     Don't increment non-letters such as space ' ' or newline.
     'a' -> 'b'
@@ -37,6 +40,7 @@ def increment_letter(letter):
     ' ' -> ' '
     http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
     """
+
     if letter not in string.ascii_letters:
         return letter
     if letter == 'z':
@@ -48,8 +52,11 @@ def increment_letter(letter):
 
 
 def increment_letter_by_two(letter):
-    """ Argument letter is ascii, case insensitive.
-    Increment letter by two
+    """Return letter incremented by two
+
+    Keyword arguments:
+        letter -- ascii, case insensitive
+
     Wrap y back to a
     Don't increment non-letters such as space ' ' or newline.
     'a' -> 'c'
@@ -58,19 +65,32 @@ def increment_letter_by_two(letter):
     'z' -> 'b'
     http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
     """
+
     return increment_letter(increment_letter(letter))
 
 
 def increment_message(message):
-    """ Use list comprehension
+    """ Return message with letters incremented by two.
+
+    Keyword arguments:
+        message -- string of ascii. Case insensitive.
+
+    Uses list comprehension
     """
+
     message_incremented = [increment_letter_by_two(letter) for letter in message]
     return ''.join(message_incremented)
 
 
 def map_message(message):
-    """ Use map. (Alternative to using list comprehension.)
+    """Return message with letters incremented by two.
+
+    Keyword arguments:
+        message -- string of ascii. Case insensitive.
+
+    Uses map. (Alternative to using list comprehension.)
     """
+
     # map is lazy and won't generate / evaluate until and unless it has to
     message_mapped = map(lambda letter: increment_letter_by_two(letter),
                          message)
