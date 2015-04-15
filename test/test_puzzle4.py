@@ -101,13 +101,5 @@ class TestPuzzle4(unittest.TestCase):
         expected = "http://www.pythonchallenge.com/pc/def/peak.html"
         self.assertEqual(expected, url_end)
 
-    def test_get_banner_list(self):
-        banner_list = self.puzzle4.get_banner_list()
-        self.assertEqual(23, len(banner_list))
-
-    def test_print_banner_list(self):
-        banner_list = self.puzzle4.get_banner_list()
-        self.puzzle4.print_banner_list(banner_list)
-
 if __name__ == "__main__":
     unittest.main()
