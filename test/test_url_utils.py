@@ -14,7 +14,7 @@ class TestUrlUtils(unittest.TestCase):
         self.trailer = "\n-->"
 
     def test_get_response(self):
-        actual = self.test_url_utils.get_response(
+        actual = url_utils.UrlUtils.get_response(
             "http://www.pythonchallenge.com/pc/def/ocr.html")
         self.assertIsNotNone(actual)
         # printing response shows prefix b', indicating type is bytes
@@ -31,7 +31,7 @@ class TestUrlUtils(unittest.TestCase):
         expected = self.test_file_utils.get_file_string(
             "test/puzzle2_response_expected.txt")
 
-        actual_bytes = self.test_url_utils.get_response(
+        actual_bytes = url_utils.UrlUtils.get_response(
             "http://www.pythonchallenge.com/pc/def/ocr.html")
         actual_string = self.test_url_utils.string_from_bytes(actual_bytes)
         self.assertEqual(99613, len(actual_string))

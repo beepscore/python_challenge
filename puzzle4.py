@@ -60,7 +60,7 @@ class Puzzle4:
             return str(value_divided_by_2)
 
     def get_text_from_url(self, url):
-        response_bytes = self.url_utils.get_response(url)
+        response_bytes = url_utils.UrlUtils.get_response(url)
         text = self.url_utils.string_from_bytes(response_bytes)
         return text
 

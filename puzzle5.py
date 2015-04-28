@@ -27,11 +27,11 @@ class Puzzle5:
     """
 
     def __init__(self):
-        self.url_utils = url_utils.UrlUtils()
+        pass
 
     def get_banner_list(self):
         banner_url = "http://www.pythonchallenge.com/pc/def/banner.p"
-        response_bytes = self.url_utils.get_response(banner_url)
+        response_bytes = url_utils.UrlUtils.get_response(banner_url)
         banner_list = pickle.loads(response_bytes)
         return banner_list
 

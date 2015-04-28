@@ -8,7 +8,7 @@ class UrlUtils:
     Utilities to make http request, convert response, get "mess" at end
     """
 
-    def get_response(self, url):
+    def get_response(url):
         # response type is bytes
         # https://docs.python.org/3/library/urllib.request.html
         response = urllib.request.urlopen(url).read()

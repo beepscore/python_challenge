@@ -26,7 +26,7 @@ class Puzzle3:
         self.trailer = "\n-->\n"
 
     def get_answer_url(self):
-        response_bytes = self.url_utils.get_response(self.puzzle_url)
+        response_bytes = url_utils.UrlUtils.get_response(self.puzzle_url)
         response_string = self.url_utils.string_from_bytes(response_bytes)
         mess = self.url_utils.get_mess(response_string,
                                        self.leader, self.trailer)
