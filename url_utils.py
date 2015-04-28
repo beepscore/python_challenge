@@ -23,7 +23,7 @@ class UrlUtils:
         mess_and_trailer = components_split_at_leader[-1]
         return mess_and_trailer
 
-    def get_mess(self, content, leader, trailer):
+    def get_mess(content, leader, trailer):
         mess_and_trailer = UrlUtils.get_mess_and_trailer(content, leader)
         components_split_at_trailer = mess_and_trailer.split(trailer)
         mess = components_split_at_trailer[-2]

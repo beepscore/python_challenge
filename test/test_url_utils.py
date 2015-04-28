@@ -8,7 +8,6 @@ import url_utils
 class TestUrlUtils(unittest.TestCase):
 
     def setUp(self):
-        self.test_url_utils = url_utils.UrlUtils()
         self.leader = "mess below:\n-->\n\n<!--\n"
         self.trailer = "\n-->"
 
@@ -45,7 +44,7 @@ class TestUrlUtils(unittest.TestCase):
     def test_get_mess(self):
         content = file_utils.FileUtils.get_file_string(
             "test/puzzle2_response_expected.txt")
-        actual = self.test_url_utils.get_mess(
+        actual = url_utils.UrlUtils.get_mess(
             content, self.leader, self.trailer)
         self.assertEqual(98764, len(actual))
         # test start

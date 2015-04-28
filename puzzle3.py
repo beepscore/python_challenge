@@ -20,7 +20,6 @@ class Puzzle3:
     """
 
     def __init__(self):
-        self.url_utils = url_utils.UrlUtils()
         self.puzzle_url = "http://www.pythonchallenge.com/pc/def/equality.html"
         self.leader = "<!--\n"
         self.trailer = "\n-->\n"
@@ -28,7 +27,7 @@ class Puzzle3:
     def get_answer_url(self):
         response_bytes = url_utils.UrlUtils.get_response(self.puzzle_url)
         response_string = url_utils.UrlUtils.string_from_bytes(response_bytes)
-        mess = self.url_utils.get_mess(response_string,
+        mess = url_utils.UrlUtils.get_mess(response_string,
                                        self.leader, self.trailer)
         characters = self.get_characters_inside_matches(mess)
         return url_utils.UrlUtils.get_url_from_answer_string(characters)

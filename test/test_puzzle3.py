@@ -14,7 +14,6 @@ class TestPuzzle3(unittest.TestCase):
     """
 
     def setUp(self):
-        self.test_url_utils = url_utils.UrlUtils()
         self.leader = "<!--\n"
         self.trailer = "\n-->\n"
         self.puzzle3 = puzzle3.Puzzle3()
@@ -30,7 +29,7 @@ class TestPuzzle3(unittest.TestCase):
         """
         content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
-        actual = self.test_url_utils.get_mess(
+        actual = url_utils.UrlUtils.get_mess(
             content, self.leader, self.trailer)
         self.assertEqual(101249, len(actual))
         expectedFileStringStart = "kAewtloYgcFQ"
@@ -43,7 +42,7 @@ class TestPuzzle3(unittest.TestCase):
     def test_get_matches(self):
         content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
-        mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
+        mess = url_utils.UrlUtils.get_mess(content, self.leader, self.trailer)
         actual_matches = self.puzzle3.get_matches(mess)
         self.assertEqual(10, len(actual_matches))
         expectedFirstMatch = 'qIQNlQSLi'
@@ -60,7 +59,7 @@ class TestPuzzle3(unittest.TestCase):
     def test_get_characters_inside_matches(self):
         content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
-        mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
+        mess = url_utils.UrlUtils.get_mess(content, self.leader, self.trailer)
         actual = self.puzzle3.get_characters_inside_matches(mess)
         self.assertEqual("linkedlist", actual)
 
