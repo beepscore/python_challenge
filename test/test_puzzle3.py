@@ -14,14 +14,13 @@ class TestPuzzle3(unittest.TestCase):
     """
 
     def setUp(self):
-        self.test_file_utils = file_utils.FileUtils()
         self.test_url_utils = url_utils.UrlUtils()
         self.leader = "<!--\n"
         self.trailer = "\n-->\n"
         self.puzzle3 = puzzle3.Puzzle3()
 
     def test_get_mess_and_trailer(self):
-        content = self.test_file_utils.get_file_string(
+        content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
         actual = self.test_url_utils.get_mess_and_trailer(content, self.leader)
         self.assertEqual("kAewtloYgcFQ", actual[:12])
@@ -29,7 +28,7 @@ class TestPuzzle3(unittest.TestCase):
     def test_get_mess(self):
         """ Test read from test file.
         """
-        content = self.test_file_utils.get_file_string(
+        content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
         actual = self.test_url_utils.get_mess(
             content, self.leader, self.trailer)
@@ -42,7 +41,7 @@ class TestPuzzle3(unittest.TestCase):
                          actual[(len(actual) - len(expectedFileStringStart)):])
 
     def test_get_matches(self):
-        content = self.test_file_utils.get_file_string(
+        content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
         mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
         actual_matches = self.puzzle3.get_matches(mess)
@@ -59,7 +58,7 @@ class TestPuzzle3(unittest.TestCase):
         self.assertEqual("t", actual)
 
     def test_get_characters_inside_matches(self):
-        content = self.test_file_utils.get_file_string(
+        content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
         mess = self.test_url_utils.get_mess(content, self.leader, self.trailer)
         actual = self.puzzle3.get_characters_inside_matches(mess)

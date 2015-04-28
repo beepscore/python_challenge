@@ -5,7 +5,7 @@ import codecs
 
 class FileUtils:
 
-    def get_file_string(self, filename):
+    def get_file_string(filename):
         """ read contents of file and return a string
         If can't read file or file is empty return None
         """
@@ -17,7 +17,7 @@ class FileUtils:
         decoded_string = codecs.decode(file_string, 'unicode_escape')
         return decoded_string
 
-    def write_bytes_to_filename(self, data, filename):
+    def write_bytes_to_filename(data, filename):
         # TODO add error handling
         # b for binary mode
         output = open(filename, "wb")

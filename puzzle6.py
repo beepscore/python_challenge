@@ -41,5 +41,5 @@ class Puzzle6:
     def download_and_write_zip(self):
         response_bytes = url_utils.UrlUtils.get_response(self.zip_url)
         filename = "./test/channel.zip"
-        file_utils.FileUtils().write_bytes_to_filename(response_bytes,
+        file_utils.FileUtils.write_bytes_to_filename(response_bytes,
                                                        filename)
