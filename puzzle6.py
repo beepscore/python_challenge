@@ -38,8 +38,6 @@ class Puzzle6:
         self.puzzle_url = "http://www.pythonchallenge.com/pc/def/channel.html"
         self.zip_url = "http://www.pythonchallenge.com/pc/def/channel.zip"
 
-    def download_and_write_zip(self):
-        response_bytes = url_utils.UrlUtils.get_response(self.zip_url)
-        filename = "./test/channel.zip"
-        file_utils.FileUtils.write_bytes_to_filename(response_bytes,
-                                                       filename)
+    def download_url_and_write_to_filename(self, url, filename):
+        response_bytes = url_utils.UrlUtils.get_response(url)
+        file_utils.FileUtils.write_bytes_to_filename(response_bytes, filename)
