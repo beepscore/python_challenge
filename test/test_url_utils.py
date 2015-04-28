@@ -55,12 +55,12 @@ class TestUrlUtils(unittest.TestCase):
         self.assertEqual(")$!%{(}$^$}*", actual[len(actual)-12:])
 
     def test_get_url_from_answer_string(self):
-        actual = self.test_url_utils.get_url_from_answer_string("foo")
+        actual = url_utils.UrlUtils.get_url_from_answer_string("foo")
         self.assertEqual(
             "http://www.pythonchallenge.com/pc/def/foo.html", actual)
 
     def test_get_url_from_answer_string_encodes_space(self):
-        actual = self.test_url_utils.get_url_from_answer_string("foo bar baz")
+        actual = url_utils.UrlUtils.get_url_from_answer_string("foo bar baz")
         self.assertEqual(
             "http://www.pythonchallenge.com/pc/def/foo+bar+baz.html", actual)
 

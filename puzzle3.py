@@ -31,7 +31,7 @@ class Puzzle3:
         mess = self.url_utils.get_mess(response_string,
                                        self.leader, self.trailer)
         characters = self.get_characters_inside_matches(mess)
-        return self.url_utils.get_url_from_answer_string(characters)
+        return url_utils.UrlUtils.get_url_from_answer_string(characters)
 
     def get_characters_inside_matches(self, a_string):
         matches = self.get_matches(a_string)

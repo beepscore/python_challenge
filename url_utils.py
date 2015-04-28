@@ -29,7 +29,7 @@ class UrlUtils:
         mess = components_split_at_trailer[-2]
         return mess
 
-    def get_url_from_answer_string(self, a_string):
+    def get_url_from_answer_string(a_string):
         """ this method url encodes a_string to replace space with +
         http://stackoverflow.com/questions/1211229/in-a-url-should-spaces-be-encoded-using-20-or
         http://stackoverflow.com/questions/1634271/url-encoding-the-space-character-or-20
