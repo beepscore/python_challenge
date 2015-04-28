@@ -27,7 +27,7 @@ class Puzzle3:
 
     def get_answer_url(self):
         response_bytes = url_utils.UrlUtils.get_response(self.puzzle_url)
-        response_string = self.url_utils.string_from_bytes(response_bytes)
+        response_string = url_utils.UrlUtils.string_from_bytes(response_bytes)
         mess = self.url_utils.get_mess(response_string,
                                        self.leader, self.trailer)
         characters = self.get_characters_inside_matches(mess)

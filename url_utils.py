@@ -14,7 +14,7 @@ class UrlUtils:
         response = urllib.request.urlopen(url).read()
         return response
 
-    def string_from_bytes(self, a_bytes):
+    def string_from_bytes(a_bytes):
         # http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
         return a_bytes.decode("utf-8")
 

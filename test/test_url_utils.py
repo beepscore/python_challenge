@@ -33,7 +33,7 @@ class TestUrlUtils(unittest.TestCase):
 
         actual_bytes = url_utils.UrlUtils.get_response(
             "http://www.pythonchallenge.com/pc/def/ocr.html")
-        actual_string = self.test_url_utils.string_from_bytes(actual_bytes)
+        actual_string = url_utils.UrlUtils.string_from_bytes(actual_bytes)
         self.assertEqual(99613, len(actual_string))
         self.assertEqual(expected, actual_string)
 

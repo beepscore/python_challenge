@@ -28,7 +28,6 @@ class Puzzle4:
     """
 
     def __init__(self):
-        self.url_utils = url_utils.UrlUtils()
         self.puzzle_url = "http://www.pythonchallenge.com/pc/def/linkedlist.php"
 
     def get_url_for_url_start_count_max(self, url_start, count_max):
@@ -61,7 +60,7 @@ class Puzzle4:
 
     def get_text_from_url(self, url):
         response_bytes = url_utils.UrlUtils.get_response(url)
-        text = self.url_utils.string_from_bytes(response_bytes)
+        text = url_utils.UrlUtils.string_from_bytes(response_bytes)
         return text
 
     def get_next_url_from_text(self, text):
