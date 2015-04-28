@@ -18,6 +18,15 @@ class TestFileUtils(unittest.TestCase):
 
         self.assertEqual("<html>\n<he", actual[:10])
 
+    def test_write_bytes_to_filename(self):
+        test_bytes = "foo".encode('utf-8')
+        filename = "./test/junk.zip"
+        file_utils.FileUtils().write_bytes_to_filename(test_bytes, filename)
+
+        # data_file is a file object
+        data_file = open(filename)
+        self.assertIsNotNone(data_file)
+        data_file.close()
 
 if __name__ == "__main__":
     unittest.main()

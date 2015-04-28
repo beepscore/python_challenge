@@ -16,3 +16,10 @@ class FileUtils:
         # http://stackoverflow.com/questions/4020539/process-escape-sequences-in-a-string-in-python
         decoded_string = codecs.decode(file_string, 'unicode_escape')
         return decoded_string
+
+    def write_bytes_to_filename(self, data, filename):
+        # TODO add error handling
+        # b for binary mode
+        output = open(filename, "wb")
+        output.write(data)
+        output.close()
