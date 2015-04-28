@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import file_utils
+import url_utils
+
 
 class Puzzle6:
     """
@@ -33,3 +36,11 @@ class Puzzle6:
 
     def __init__(self):
         self.puzzle_url = "http://www.pythonchallenge.com/pc/def/channel.html"
+        self.zip_url = "http://www.pythonchallenge.com/pc/def/channel.zip"
+        self.url_utils = url_utils.UrlUtils()
+
+    def download_and_write_zip(self):
+        response_bytes = self.url_utils.get_response(self.zip_url)
+        filename = "./test/channel.zip"
+        file_utils.FileUtils().write_bytes_to_filename(response_bytes,
+                                                       filename)
