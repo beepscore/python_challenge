@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import puzzle6
 import unittest
 
@@ -18,6 +19,7 @@ class TestPuzzle6(unittest.TestCase):
         # assert file exists
         self.assertIsNotNone(data_file)
         data_file.close()
+        os.remove(filename)
 
 
 if __name__ == "__main__":

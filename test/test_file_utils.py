@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import file_utils
+import os
 import unittest
 
 
@@ -27,6 +28,7 @@ class TestFileUtils(unittest.TestCase):
         data_file = open(filename)
         self.assertIsNotNone(data_file)
         data_file.close()
+        os.remove(filename)
 
 if __name__ == "__main__":
     unittest.main()
