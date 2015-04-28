@@ -22,7 +22,7 @@ class TestPuzzle3(unittest.TestCase):
     def test_get_mess_and_trailer(self):
         content = file_utils.FileUtils.get_file_string(
             "test/puzzle3_response_expected.txt")
-        actual = self.test_url_utils.get_mess_and_trailer(content, self.leader)
+        actual = url_utils.UrlUtils.get_mess_and_trailer(content, self.leader)
         self.assertEqual("kAewtloYgcFQ", actual[:12])
 
     def test_get_mess(self):
